@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  imageserver-java:
+    image: "imageserver-java"
+    container_name: imageserver-java
+    restart: always
+    hostname: "if_needed"
+    ports:
+      - "8080:8080"
+      - "80:80"
+    volumes:
+      - "/home/andy/Bilder:/mnt/images"
+      - "/home/andy/dev/bilder/mobile:/mnt/mobile"
+      - "/home/andy/dev/bilder/thumbnail:/mnt/thumbnail"
+    environment:
+      ImageFolder: /mnt/images
+      MobileFolder: /mnt/mobile
+      ThumbnailFolder: /mnt/thumbnails
